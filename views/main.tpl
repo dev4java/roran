@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>The roran Website Template | Home :: w3layouts</title>
+<title> story & time & you </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
@@ -38,12 +38,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="logo"><img src="/static/img/logo1.png" alt="logo" /></div>
 					<a href="#" class="header_toggle">Menu</a>
 					<ul class="navigation">
-						<li class="scroll"><a href="#home">Home</a></li>
-						<li class="scroll"><a href="#about">About</a></li>
+						<li class="scroll"><a href="/hot">Hot</a></li>
+						<li class="scroll"><a href="#about">Ranking</a></li>
 						<li class="scroll"><a href="#services">Service</a></li>
-						<li class="scroll"><a href="#team">Team</a></li>
-						<li class="scroll"><a href="#portfolio">Portfolio</a></li>
-						<li class="scroll"><a href="#contact">Contact</a></li>
+						<li class="scroll"><a href="#team">Ours</a></li>
+						<li class="scroll"><a href="#portfolio">Timeline</a></li>
+						<li class="scroll"><a href="#contact">About</a></li>
 						<div class="clear"> </div>
 					</ul>
 					<div class="social_icons">
@@ -818,29 +818,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			
 				<div class="wrap">
 					<div class="form">
-					<div class="contact-form">
-							<form method="post" action="contact-post.html">
-								 		 <div>
-									    	<span><label>Name</label></span>
-									    	<span><input name="userName" type="text" class="textbox"></span>
-									    </div>
-									    <div>
-									    	<span><label>E-Mail</label></span>
-									    	<span><input name="userEmail" type="text" class="textbox"></span>
-									    </div>
-									    <div>
-									     	<span><label>Subject</label></span>
-									    	<span><input name="userPhone" type="text" class="textbox"></span>
-									    </div>
-									    <div>
-									    	<span><label>Message</label></span>
-									    	<span><textarea name="userMsg"> </textarea></span>
-									    </div>
-									   <div>
-									   		<span><input type="submit" value="Send"></span>
-									  </div>
-								</form>			
-					</div>
+					
 					<div class="address">
 						<h3 class="heading">Contactinfo</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
