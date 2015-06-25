@@ -55,13 +55,12 @@
 		</div>
 	</div>
 	<script>
-	
-	
 	function fileSelected(elementId){
-		if(isPicture($('#'+elementId).val())){  
-         $.ajaxFileUpload(  
+	alert("ok");
+	alert($('#'+elementId).val());  
+    	$.ajaxFileUpload(  
             {  
-                url:'uploadMapPicture.do?dataId='+$('#ID').val()+'&tableName='+tabName,//用于文件上传的服务器端请求地址  
+                url:'/file/upload?dataId='+$('#ID').val()+'&tableName='+tabName,//用于文件上传的服务器端请求地址  
                 secureuri:false,//一般设置为false  
                 fileElementId:elementId,//文件上传空间的id属性  <input type="file" id="file" name="file" />  
                 dataType: 'json',//返回值类型 一般设置为json  
@@ -80,44 +79,8 @@
                    $.messager.show({title:'操作提示',msg:'上传失败！',showType:'show'});  
                 }  
             }  
-        )  
-     }else{  
-         $.messager.alert('信息提示','文件类型不合法,只能是 jpg、gif、bmp、png、jpeg 类型！');  
-     }  
-}  	
-	}
-	
-	
-	var name=$("#uname").val();
-	var title=$("#utitle").val();
-	var imgurl=$("#uimgurl").val();
-	var msg=$("#umsg").val();
-	
-	
-	
-	
-	$.ajax({
-       type : "get",
-       url : "/jobs/getCity.do",
-       cache : false,
-       data : {},
-       dataType : 'json',
-       success : function(data, textStatus) {
-               var html = "" ;
-               if (data.status == "0" ) {
-                     $.each(data.result, function(n, val) {
-                            if(val != "" && val !=null && val != "null" ){
-                                  html += "<option value=" + val + ">" + n + "</option>" ;
-                           }
-                     });
-                     $( "#city").append(html);
-              }
-       },
-       error : function(XMLHttpRequest, textStatus, errorThrown) {
-              $( "#alert-content").css("display" , "block" );
-              $( "。title").text("系统异常" );
-       }
-});
-	</script>
-	</body>
-	</html>
+        )
+}
+</script>
+</body>
+</html>

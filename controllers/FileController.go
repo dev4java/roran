@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"github.com/astaxie/beego"
 )
 
@@ -8,13 +9,23 @@ type FileController struct {
 	beego.Controller
 }
 
-beego.Get("/file/upload",func(ctx *context.Context){
-    f, h, _ := this.GetFile("image")    //获取上传的文件
-    path := this.Input().Get("url") //存文件的路径    
-	path = path[7:]     
-	path = "./static/img/" + path + "/" + h.Filename        
-	f.Close()   // 关闭上传的文件，不然的话会出现临时文件不能清除的情况    
-	this.SaveToFile("image", path)  //存文件    WaterMark(path)    //给文件加水印    
-	this.Redirect("/addphoto", 302)
+func (this *FileController) Uploadfile() {
+	f, h, err := this.GetFile("UpLoadFile")
+	if err != nil {
+		fmt.Println("getfile err ", err)
+	}
+	fmt.Println("filename:", h.Filename)
+	//h.Filename中没有了\     bug?
 
-})
+	//暂时用自建的filename
+	//filename := h.Filename[strings.LastIndex(h.Filename, `:`)+1:]
+	filename := "aaa.jpg"
+	path := `d:\` + filename
+
+	f.Close()
+	err = this.SaveToFile("UpLoadFile", path)
+	if err != nil {
+		fmt.Println("err:", err)
+	}
+	this.Redirect("/yang/233/uploadplms", 302)
+}
