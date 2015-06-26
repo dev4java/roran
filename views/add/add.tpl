@@ -8,7 +8,7 @@
 <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css" href="/static/css/magnific-popup.css">
 <link rel="stylesheet" type="text/css" href="/static/css/prettyPhoto.css">
-<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/jquery-1.7.1.min.js"></script>
 <script src="/static/js/ajaxfileupload.js"></script>
 </head>
 <body>
@@ -36,7 +36,7 @@
 									    <div>
 									     	<div><label for="image_file">Please select image file</label></div>
 											<div>
-												<input type="file" name="image_file" id="image_file" onchange="fileSelected(image_file);" />
+												<input type="file" name="UpLoadFile" id="image_file" onchange="fileSelected(image_file);" />
 												<input type="hidden" id="uimgurl" />
 											</div>
 									    </div>
@@ -57,30 +57,30 @@
 	<script>
 	function fileSelected(elementId){
 	alert("ok");
-	alert($('#'+elementId).val());  
-    	$.ajaxFileUpload(  
-            {  
-                url:'/file/upload?dataId='+$('#ID').val()+'&tableName='+tabName,//用于文件上传的服务器端请求地址  
-                secureuri:false,//一般设置为false  
-                fileElementId:elementId,//文件上传空间的id属性  <input type="file" id="file" name="file" />  
-                dataType: 'json',//返回值类型 一般设置为json  
-                success: function (data)  //服务器成功响应处理函数  
-                {     
-                    if(data.result == "success"){  
-                        var node = "<div id='"+data.fileId+"'><label ><font size='2'>"+data.fileName+"</font></label><a  href='javascript:void(0)' onclick=removeFile('"+data.fileId+"')><font size='2' style='cursor:pointer;'>删除</font></a></div>";  
-                        $('#fileList').append(node);  
-                        $('#ID').val(data.recordId);  
-                        $('#fileList').show();  
-                        $.messager.show({title:'操作提示',msg:'上传成功！',showType:'show'});  
+	 $.ajaxFileUpload({  
+            url:'/file/upload',  
+            secureuri:false,  
+            fileElementId:'image_file',//file标签的id  
+            dataType: 'json',//返回数据的类型  
+            data:{name:'logan'},//一同上传的数据  
+            success: function (data, status) {  
+                //把图片替换  
+                var obj = jQuery.parseJSON(data);  
+                $("#upload").attr("src", "../image/"+obj.fileName);  
+      
+                if(typeof(data.error) != 'undefined') {  
+                    if(data.error != '') {  
+                        alert(data.error);  
+                    } else {  
+                        alert(data.msg);  
                     }  
-                },  
-                error: function (data, status, e)//服务器响应失败处理函数  
-                {  
-                   $.messager.show({title:'操作提示',msg:'上传失败！',showType:'show'});  
                 }  
+            },  
+            error: function (data, status, e) {  
+                alert(e);  
             }  
-        )
-}
+        });
+	}
 </script>
 </body>
 </html>
