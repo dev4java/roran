@@ -63,8 +63,7 @@
             fileElementId:'image_file',//file标签的id  
             dataType: 'json',//返回数据的类型  
             data:{name:'logan'},//一同上传的数据  
-            success: function (data, status) {  
-                //把图片替换  
+            success: function (data, status) {
                 var obj = jQuery.parseJSON(data);  
                 $("#upload").attr("src", "../image/"+obj.fileName);  
       

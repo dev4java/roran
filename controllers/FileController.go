@@ -17,6 +17,7 @@ func (this *FileController, ctx *context.Context) Uploadfile() {
 	fmt.Println("--------------------------------------")
 	var sss string = this.ctx.Request.URL.Path
 	fmt.Println(sss)
+	fmt.Println("--------------------------------------")
 	f, h, err := this.GetFile("UpLoadFile")
 	if err != nil {
 		fmt.Println("getfile err ", err)
